@@ -17,6 +17,9 @@
   </engines>
 
   <asset src="www/CameraRoll.js" target="js/plugins/CameraRoll.js"/>
+   <js-module src="www/CameraRoll.js" name="CameraRoll">
+        <clobbers target="window.plugins.cameraRoll" />
+    </js-module>
 
   <!-- ios -->
  	<platform name="ios">
