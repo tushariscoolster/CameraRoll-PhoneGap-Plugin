@@ -5,11 +5,11 @@
 @implementation CameraRoll
 
 
--(void)count:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options {
+-(void)count:(CDVInvokedUrlCommand*)command {
     
-    NSString *callbackId = [arguments pop];
-    BOOL includePhotos   = [[arguments objectAtIndex:0] boolValue];
-    BOOL includeVideos   = [[arguments objectAtIndex:1] boolValue];
+    NSString *callbackId = [command.arguments pop];
+    BOOL includePhotos   = [[command.arguments objectAtIndex:0] boolValue];
+    BOOL includeVideos   = [[command.arguments objectAtIndex:1] boolValue];
 
     ALAssetsFilter *filter;
     if (includePhotos && includeVideos) {
@@ -44,10 +44,10 @@
 }
 
 
--(void)find:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options {
+-(void)find:(CDVInvokedUrlCommand*)command  {
 
-    NSString *callbackId = [arguments pop];
-    NSInteger max        = [[arguments objectAtIndex:0] integerValue];
+    NSString *callbackId = [command.arguments pop];
+    NSInteger max        = [[command.arguments objectAtIndex:0] integerValue];
     
     NSMutableArray *photos = [[NSMutableArray alloc] init];
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
